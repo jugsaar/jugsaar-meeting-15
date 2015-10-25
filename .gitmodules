@@ -1,0 +1,3 @@
+[submodule "code/docker-maven-sample"]
+	path = code/docker-maven-sample
+	url = https://github.com/jugsaar/docker-maven-sample
