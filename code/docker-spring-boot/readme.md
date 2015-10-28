@@ -12,7 +12,6 @@ mvn clean package
 ```
 mvn docker:build
 ```
-
 # Run the newly created docker image
 ``` 
 docker run -t --rm --name bootapp -p 8080:8080 jugsaar/bootapp
@@ -25,5 +24,10 @@ docker run -t --rm --name bootapp -p 8080:8080 -p 42424:42424 jugsaar/bootapp
 
 # One line version
 ```
-docker rm -f bootapp && mvn clean package -DskipTests && mvn docker:build &&  docker run --rm --name bootapp -p 8080:8080 -p 42424:42424 jugsaar/bootapp
+mvn clean package -DskipTests && mvn docker:build &&  docker run --rm --name bootapp -p 8080:8080 -p 42424:42424 jugsaar/bootapp
+```
+
+# Rebuild the docker image from scratch
+```
+docker rm -f bootapp && docker rmi -f jugsaar/bootapp 
 ```

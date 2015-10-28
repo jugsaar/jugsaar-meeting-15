@@ -26,13 +26,13 @@
 	<build>
 
 		<resources>
-		
+
 			<resource>
 				<directory>src/main/docker</directory>
 				<filtering>true</filtering>
 				<targetPath>${project.build.directory}/docker</targetPath>
 			</resource>
-			
+
 		</resources>
 
 		<plugins>
@@ -50,6 +50,12 @@
 				<configuration>
 					<imageName>${docker.image.prefix}/${project.artifactId}</imageName>
 					<dockerDirectory>${project.build.directory}/docker</dockerDirectory>
+					<imageTags>
+						<imageTag>${project.version}</imageTag>
+						<imageTag>latest</imageTag>
+					</imageTags>
+					<useGitCommitId>true</useGitCommitId>
+					
 					<resources>
 						<resource>
 							<targetPath>/</targetPath>
@@ -59,7 +65,6 @@
 					</resources>
 				</configuration>
 			</plugin>
-
 		</plugins>
 	</build>
 
