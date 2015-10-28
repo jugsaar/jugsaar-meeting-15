@@ -1,3 +1,11 @@
+# Docker Workflow Demo
+###
+
+* * *
+
+#Show docker file
+open Dockerfile
+
 #Build a new image from ./Dockerfile and tag it with: jugsaar/docker-python-webserver:latest
 docker build -t jugsaar/docker-python-webserver .
 
