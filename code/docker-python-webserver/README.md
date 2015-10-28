@@ -3,51 +3,83 @@
 
 * * *
 
-#Show docker file
+## Show docker file
+```
 open Dockerfile
+```
 
-#Build a new image from ./Dockerfile and tag it with: jugsaar/docker-python-webserver:latest
+## Build a new image from ./Dockerfile and tag it with: jugsaar/docker-python-webserver:latest
+```
 docker build -t jugsaar/docker-python-webserver .
+```
 
-#Show layers of the new image
+## Show layers of the new image
+```
 docker history jugsaar/docker-python-webserver
+```
 
-#Create a new container instance from the image with name: webserver
+## Create a new container instance from the image with name: webserver
+```
 docker run -d -t --name webserver jugsaar/docker-python-webserver
+```
 
-#Show currently running containers
+## Show currently running containers
+```
 docker ps
+```
 
-#Inspect container configuration
+## Inspect container configuration
+```
 docker inspect webserver
+```
 
-#Inspect specific container configuration with go templates
+## Inspect specific container configuration with go templates
+```
 docker inspect -f {{.NetworkSettings.IPAddress}} webserver
 docker inspect -f {{.NetworkSettings.PortBindings}} webserver
+```
 
-#Open in browser
+## Open in browser
+```
 open http://172.17.0.25:8000
+```
 
-#Show webserver logs
+## Show webserver logs
+```
 docker logs webserver
 docker tail webserver
+```
 
-#Stop webserver
+## Stop webserver
+```
 docker stop webserver
+```
 
-#Remove webserver container
+## Remove webserver container
+```
 docker rm -f webserver
+```
 
-Create a new container instance from the image with name: webserver and bind local port 8000 to 8000 container port
+
+## Create new container instance
+Create a new container instance from the image with name: webserver and bind local port 8000 to 8000 container 
+port
+```
 docker run -p 8000:8000 -d --name webserver jugsaar/docker-python-webserver
+```
 
+## Investigate the container again
+```
 docker inspect webserver
 docker inspect -f {{.HostConfig.PortBindings}} webserver 
+```
 
-
-#Remove container webserver
+## Remove container webserver
+```
 docker rm -f webserver
+```
 
-#Remove image
+## Remove image
+```
 docker rmi -f  jugsaar/docker-python-webserver
-
+```
