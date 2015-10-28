@@ -8,7 +8,4 @@ Digest: sha256:017c4cfd3b10fe77c37a515c38f4327e0668fdb287c0aa1436967fda37010713
 Status: Downloaded newer image for debian:latest
 Hello World
 
-
-
-
-docker run debian echo "Hello World from: uname -a"
+docker run debian echo "Hello World"
