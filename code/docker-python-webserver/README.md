@@ -41,13 +41,13 @@ docker inspect -f {{.NetworkSettings.PortBindings}} webserver
 
 ## Open in browser
 ```
-open http://172.17.0.25:8000
+open http://$(docker inspect -f {{.NetworkSettings.IPAddress}} webserver):8000
 ```
 
 ## Show webserver logs
 ```
 docker logs webserver
-docker tail webserver
+docker logs -f webserver
 ```
 
 ## Stop webserver
